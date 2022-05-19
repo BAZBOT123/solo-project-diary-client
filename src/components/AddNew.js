@@ -1,0 +1,83 @@
+import { useEffect, useState } from 'react'
+ import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"
+
+
+function AddNew(props) {
+    const today = Date()
+    const { setDiary, diary } = props
+    let navigate = useNavigate()
+
+    const [pageData, setPageData] = useState({
+        plan: '',
+        affirmation: '',
+    })
+
+    function handleChange(event) {
+        const { name, value } = event.target
+        setPageData(preVal => {
+            return { ...preVal, [name]: value }
+        })
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+       
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(pageData)
+        }
+    
+            fetch('http://localhost:4000/diary/1', options)
+                .then(res => res.json())
+                .then(res => {
+    console.log("this is diary", diary)
+    console.log("this is res", res)
+                    setDiary([...diary.diaries, res.data])
+                    setPageData({
+                        plan: '',
+                        affirmation: ''
+                    })
+                    navigate('/diary/calendar')
+                })
+    }
+
+    return (
+        <form onSubmit={handleSubmit}
+            className='data-input'>
+            <header className='my-diary'>
+                <h1 className='diary-font2'><Link to='/'>MY DIARY...</Link></h1>
+            </header>
+            <h2>Write New</h2>
+
+            <div className='main-date'>
+                <h3>{today.slice(0, 15)}</h3>
+            </div>
+
+            <div className='question-two'>
+                <label htmlFor='plan'> What's your action plan?</label>
+                <br />
+                <textarea rows='7' id='plan' placeholder="Write your plan here" name='plan'
+                    onChange={handleChange} value={pageData.plan} required />
+            </div>
+
+            <div className='question-three'>
+                <label htmlFor='affirmation'> Write some daily affirmations?</label>
+                <br />
+                <textarea rows='3' id='affirmation' placeholder="Write your plan here" name='affirmation'
+                    onChange={handleChange} value={pageData.affirmation} required />
+            </div>
+
+            <div className="actions-section">
+                <button className="button" type="submit">
+                    Add
+                </button>
+            </div>
+        </form>
+    )
+}
+
+export default AddNew

@@ -1,0 +1,202 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: rgb(130, 212, 233);
+  /* background: linear-gradient(rgb(130, 212, 233), blue);  */
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+h1.diary-font a {
+  font-family: 'Patrick Hand SC', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 2.2em;
+  padding-top: 120px;
+}
+
+h1.diary-font2 a {
+  font-size: 3rem;
+  font-family: 'Patrick Hand SC', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  color: black;
+  padding-top: 120px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.img-cal {
+  background-color: white;
+  border: 10px;
+  height: 100px;
+  width: 100px;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-color: black;
+  margin-top: 10px;
+  
+}
+
+.main-menu {
+  margin-top: 60px;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0
+} 
+
+.main-menu Link {
+  text-decoration: none;
+}
+
+.cal-day {
+  color: black;
+  margin: .30em;
+  font-size: 1.5rem;
+}
+
+.cal-num {
+  color: red;
+  font-size: 3.2rem;
+  margin: 0em
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.li{
+  list-style: none
+}
+
+* {
+  font-family: 
+  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.div-quote {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  place-items: center;
+}
+
+.main-quote {
+  place-items: center;
+  color: rgb(107, 107, 107);
+  font-size: 1rem;
+}
+
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  place-items: center;
+}
+
+.div-write {
+  background-color: white;
+  width:100px;
+  height: 25px;
+  border-radius: 5px;
+  border-color: black;
+}
+
+.write-font {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  padding-top: 3px;
+}
+
+.my-diary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.div-poa {
+  background-color: white;
+  height: 100%;
+  width: 350px;
+  border-radius: 5px;
+}
+
+#actionPlan,
+#dailyAffirmations {
+  background-color: white;
+  border-radius: .4rem;
+  width: 20rem;
+  height: 40px
+}
+
+#actionPlan {
+  height: 5rem;
+}
+
+.button {
+  color: black;
+}
+
+button {
+  background-color:#0dc1f3;
+  border-radius: 1rem;
+  width: 3rem;
+}
+
+.diary-date {
+  display: flex;
+  place-items: end;
+}
