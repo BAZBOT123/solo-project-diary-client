@@ -1,3 +1,6 @@
+@import 'react-date-range/dist/styles.css'; 
+@import 'react-date-range/dist/theme/default.css';
+
 .App {
   text-align: center;
 }
@@ -128,7 +131,6 @@ h1.diary-font2 a {
   font-size: 1rem;
 }
 
-
 a:link {
   text-decoration: none;
 }
@@ -167,13 +169,6 @@ a:visited {
   align-items: center;
 }
 
-.div-poa {
-  background-color: white;
-  height: 100%;
-  width: 350px;
-  border-radius: 5px;
-}
-
 #actionPlan,
 #dailyAffirmations {
   background-color: white;
@@ -200,3 +195,13 @@ button {
   display: flex;
   place-items: end;
 }
+
+.div-affirm,
+.div-poa,
+.diary-date {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+} 
+
+

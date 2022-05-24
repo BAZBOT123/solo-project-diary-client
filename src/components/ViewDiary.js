@@ -15,7 +15,7 @@ export default function ViewDiary() {
             .then(res => res.json())
             .then(res => {
                 console.log('Baz', res)
-                setDiary(res)
+                setDiary(res.data)
 
             })
     }, [params])
@@ -31,7 +31,8 @@ export default function ViewDiary() {
             <header className='my-diary'>
                 <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
             </header>
-            <h2 className='diary-date'>{diary.date.slice(0, 10)}</h2>
+     
+            <h2 className='diary-date'>{diary.createdAt.substring(0, 10)}</h2>
 
             <div className='div-poa'>
                 <h3>What's your action plan?</h3>
@@ -42,7 +43,8 @@ export default function ViewDiary() {
                 <h3>Write some daily affirmations?</h3>
                 <p>{diary.affirmation}</p>
             </div>
+            <p><Link to={`/diary/${diary.id}/edit`}>Edit</Link></p>
+          
         </div>
-
     )
 }
