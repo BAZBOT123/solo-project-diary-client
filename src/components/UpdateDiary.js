@@ -3,95 +3,95 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import './updateDiary.css'
 
 function UpdateDiary(props) {
-    const today = Date()
-    let navigate = useNavigate()
-    const params = useParams()
+  const today = Date()
+  let navigate = useNavigate()
+  const params = useParams()
 
-    const [pageData, setFormData] = useState({
-        plan: '',
-        affirmation: ''
+  const [pageData, setFormData] = useState({
+    plan: '',
+    affirmation: ''
+  })
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/diary/${params.id}`)
+      .then(response => response.json())
+      .then(response => {
+        console.log("response:", response)
+        setFormData(response.data)
+      })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const { setDiary, setToggle } = props
+
+  function handleChange(event) {
+    const { name, value } = event.target
+    setFormData(preVal => {
+      return { ...preVal, [name]: value }
     })
+  }
 
-    useEffect(() => {
-        fetch(`http://localhost:4000/diary/${params.id}`)
-            .then(response => response.json())
-            .then(response => {
-                console.log("response:", response)
-                setFormData(response.data)
-            })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+  function handleSubmit(event) {
+    event.preventDefault()
+    console.log("this is formData:", pageData)
 
-    const { setDiary, setToggle } = props
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(pageData)
+    }
 
-    function handleChange(event) {
-        const { name, value } = event.target
-        setFormData(preVal => {
-            return { ...preVal, [name]: value }
+    fetch(`http://localhost:4000/diary/${params.id}`, options)
+      .then(response => response.json())
+      .then(response => {
+        console.log("Check data:", response.data)
+        setDiary(preVal => preVal.map(diary => diary.id === params.id ? response.data : diary))
+        setToggle(toggle => !toggle)
+        setFormData({
+          plan: '',
+          affirmation: ''
         })
-    }
+        navigate('/')
+      })
+  }
 
-    function handleSubmit(event) {
-        event.preventDefault()
-        console.log("this is formData:", pageData)
+  return (
+    <div className='update-main-page'>
+      <form onSubmit={handleSubmit}
+        className='data-input'>
+        <header className='my-diary'>
+          <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
+        </header>
+        <div className='form-display'>
+          <div className='update-date-div'>
+            <h3>{today.slice(0, 15)}</h3>
+          </div>
 
-        const options = {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(pageData)
-        }
+          <div className='question-one'>
+            <label htmlFor='plan'> What's your action plan?</label>
+            <br />
+            <textarea rows='7' id='plan' placeholder="Write your plan here" name='plan'
+              onChange={handleChange} value={pageData.plan} required />
+          </div>
 
-        fetch(`http://localhost:4000/diary/${params.id}`, options)
-            .then(response => response.json())
-            .then(response => {
-                console.log("Check data:", response.data)
-                setDiary(preVal => preVal.map(diary => diary.id === params.id ? response.data : diary))
-                setToggle(toggle => !toggle)
-                setFormData({
-                    plan: '',
-                    affirmation: ''
-                })
-                navigate('/')
-            })
-    }
+          <div className='question-two'>
+            <label htmlFor='affirmation'> Write some daily affirmations?</label>
+            <br />
+            <textarea rows='3' id='affirmation' placeholder="Write your plan here" name='affirmation'
+              onChange={handleChange} value={pageData.affirmation} required />
+          </div>
 
-    return (
-        <div className="update-main-page">
-            <form onSubmit={handleSubmit}
-                className='data-input'>
-                <header className='my-diary'>
-                    <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
-                </header>
-                <div className='form-display'>
-                    <div className='main-date'>
-                        <h3>{today.slice(0, 15)}</h3>
-                    </div>
-
-                    <div className='question-one'>
-                        <label htmlFor='plan'> What's your action plan?</label>
-                        <br />
-                        <textarea rows='7' id='plan' placeholder="Write your plan here" name='plan'
-                            onChange={handleChange} value={pageData.plan} required />
-                    </div>
-
-                    <div className='question-two'>
-                        <label htmlFor='affirmation'> Write some daily affirmations?</label>
-                        <br />
-                        <textarea rows='3' id='affirmation' placeholder="Write your plan here" name='affirmation'
-                            onChange={handleChange} value={pageData.affirmation} required />
-                    </div>
-
-                    <div className="actions-section">
-                        <button className="update-button" type="submit">
-                            Update
-                        </button>
-                    </div>
-                </div>
-            </form>
+          <div className='update-button-div'>
+            <button className='update-button' type='submit'>
+              Update
+            </button>
+          </div>
         </div>
-    )
+      </form>
+    </div>
+  )
 }
 
 export default UpdateDiary

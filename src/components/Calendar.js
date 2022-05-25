@@ -40,14 +40,14 @@ function Calendar(props) {
                     return (
                         <Link to={`/diary/${id}`}><li className="diary" key={index}>
                             <p>
-                                {plan}
-                            </p>
-                            <p>
                                 {createdAt.substring(0, 10)}
                                 <br />
                                 {/* <Link to={`/diary/${diary.id}/update`}>Edit</Link>
                 <br />
                 <Link to={`/diary/${diary.id}/delete`}>Delete</Link> */}
+                            </p>
+                            <p>
+                                {plan}
                             </p>
                         </li></Link>
                     )

@@ -28,6 +28,11 @@ li.diary {
   transition: box-shadow 0.5s;
 }
 
+li.diary p{
+  font-family: "Patrick Hand SC", cursive;
+  color: black;
+}
+
 li.diary:hover {
   box-shadow: inset 0px 1px 20px rgba(2, 0, 0, 0.5);
 }
@@ -57,6 +62,8 @@ li.diary:hover {
   border: 2px solid black;
   outline: none;
   transition: box-shadow 0.5s;
+  font-family: "Patrick Hand SC", cursive;
+  font-size: 1rem;
 }
 
 .apply-button:hover {
@@ -69,12 +76,12 @@ div.calendar-display {
 
 .calendar-text {
   font-family: "Patrick Hand SC", cursive;
+  color: black;
   padding-left: 20%;
   padding-bottom: 1rem;
+  padding-top: 1rem;
   font-size: 1.4rem;
-  
 }
-
 
 .form-display {
   margin: 0;

@@ -1,62 +1,78 @@
 .view-display {
-    border: 2px solid black;
-    border-radius: 1rem;
-    width: 20rem;
-    background-color: #daf5e5;
-    padding: 0.5rem;
-    display: flex;
-    place-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    padding: 1rem;
-  }
-  
-  .diary-date-div {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    align-items: flex-start;
-    margin: 0;
-    height: 2rem;
-  }
-  
-  .view-diary-date {
-    font-family: "Patrick Hand SC", cursive;
-    margin: 0;
-    font-size: 1.4rem;
-  }
-  
-  .view-main-page {
-    background-color: #d6f5ce;
-    height: 100vh;
-    width: 100%;
-    display: grid;
-    justify-content: center;
-  }
-  
-  .edit-button {
-    background-color: #daf5e5;
-    border-radius: 1rem;
-    width: 5rem;
-    height: 2.5rem;
-    border: 2px solid black;
-  }
-  
-  .edit-button:hover {
-    box-shadow: inset 0px 1px 8px rgba(2, 0, 0, 0.5);
-  }
-  
-  
-  .div-affirm,
-  .div-view-plan {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 30%;
-    align-items: flex-start;
-    width: 100%
-  }
-  
-  
-  
+  border: 2px solid black;
+  border-radius: 1rem;
+  width: 20rem;
+  background-color: #daf5e5;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.diary-date-div {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  align-items: flex-start;
+  margin: 0;
+  height: 0;
+}
+
+.view-diary-date {
+  font-family: "Patrick Hand SC", cursive;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.view-main-page {
+  background-color: #d6f5ce;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.edit-button {
+  background-color: #daf5e5;
+  border-radius: 1rem;
+  width: 5rem;
+  height: 2.5rem;
+  border: 2px solid black;
+  color: black;
+}
+
+.edit-button:hover {
+  box-shadow: inset 0px 1px 8px rgba(2, 0, 0, 0.5);
+}
+
+.div-view-affirm,
+.div-view-plan {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 4rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.div-view-affirm p,
+.div-view-plan p {
+  font-family: "Patrick Hand SC", cursive;
+  color: rgb(99, 99, 99);
+  font-size: 1.2rem;
+}
+
+.div-view-affirm h3,
+.div-view-plan h3 {
+  font-family: "Patrick Hand SC", cursive;
+  color: black;
+  font-size: 1.4rem;
+}
+
+div.view-edit-button {
+  display: flex;
+  justify-content: flex-end;
+  height: 2.5rem;
+}
