@@ -3,37 +3,34 @@ import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import { addDays } from 'date-fns';
 import { DateRange } from 'react-date-range'
+import './calendar.css'
 
 function Calendar(props) {
 
     //"contacts" must be passed as prop to this component
-    const { diary } = props
+    const { diary, date, setDate, applyDate, setApplyDate } = props
 
     console.log('diary list:', diary)
 
-    const [state, setState] = useState([
-        {
-            startDate: new Date(),
-            endDate: new Date(),
-            key: 'selection'
-        }
-    ]);
-
-
-    console.log('check state:', state)
+    console.log('check state:', date)
 
     return (
-        <>
+        <div className='calendar-main'>
+
             <header className='my-diary'>
 
-                <h1 className='diary-font2'><Link to='/'>MY DIARY...</Link></h1>
+                <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
             </header>
+            <h2 className='calendar-text'>Choose your diary entry dates, treacle:</h2>
+            <div className='calendar-display'>
             <DateRange
                 editableDateInputs={true}
-                onChange={item => setState([item.selection])}
+                onChange={item => setDate([item.selection])}
                 moveRangeOnFirstSelection={false}
-                ranges={state}
+                ranges={date}
             />
+            <button className='apply-button' onClick={()=> setApplyDate(!applyDate)}> Apply </button>
+            </div>
             <ul className="diary-list">
 
                 {diary.map((entry, index) => {
@@ -41,22 +38,22 @@ function Calendar(props) {
                     const { plan, createdAt, id } = entry
                     console.log("created:", createdAt)
                     return (
-                        <li className="diary" key={index}>
+                        <Link to={`/diary/${id}`}><li className="diary" key={index}>
                             <p>
                                 {plan}
                             </p>
                             <p>
-                                <Link to={`/diary/${id}`}>{createdAt.substring(0, 10)}</Link>
+                                {createdAt.substring(0, 10)}
                                 <br />
                                 {/* <Link to={`/diary/${diary.id}/update`}>Edit</Link>
                 <br />
                 <Link to={`/diary/${diary.id}/delete`}>Delete</Link> */}
                             </p>
-                        </li>
+                        </li></Link>
                     )
                 })}
             </ul>
-        </>
+        </div>
     )
 }
 

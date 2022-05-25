@@ -10,16 +10,35 @@ import { useEffect } from 'react';
 
 export default function App() {
 
+
   const [diary, setDiary] = useState([])
 const [toggle, setToggle] = useState(false)
+const [applyDate, setApplyDate] = useState(true)
+
+
+const [date, setDate] = useState([
+  {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection'
+  }
+]);
+
+const start = date[0].startDate;
+const end = date[0].endDate;
+
+const dateRange = `?startDate=${start}&endDate=${end}`
+let url = 'http://localhost:4000/diary' + dateRange;
+
   useEffect(() => {
-    fetch('http://localhost:4000/diary')
+    fetch(url)
       .then(res => res.json())
       .then(res => {
         console.log("Loaded initial entries:", res)
         setDiary(res.diaries)
       })
-  }, [toggle])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [toggle, applyDate])
 
   // console.log("Help", diary[diary.length-1].id)
 
@@ -31,7 +50,7 @@ const [toggle, setToggle] = useState(false)
           <Route path='/' element={< Home />} />
           <Route path='/diary/addnew' element={< AddNew diary={diary} setDiary={setDiary} />} />
           <Route path='/diary/:id' element={< ViewDiary />} />
-          <Route path='/diary/calendar' element={< Calendar diary={diary} />} />
+          <Route path='/diary/calendar' element={< Calendar diary={diary} setDate={setDate} date={date} applyDate={applyDate} setApplyDate={setApplyDate}/>} />
           <Route path='/diary/:id/edit' element={< UpdateDiary diary={diary} setDiary={setDiary} setToggle={setToggle} />} />
         </Routes>
       </main>

@@ -1,0 +1,94 @@
+/* .Home {
+    background-color:aquamarine
+} */
+
+.centre-nav {
+    background-color: #82d4e9;
+    height: 100vh;
+    width: 100%;
+}
+
+.main-menu {
+    margin-top: 6rem;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0
+  } 
+  
+  .main-menu Link {
+    text-decoration: none;
+  }
+
+  .div-quote {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-items: center;
+  }
+
+  .main-quote {
+    place-items: center;
+    color: #488B9C;
+    font-size: 1rem;
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 1.4rem;
+  }
+
+/* write new section */
+  .div-write {
+    background-color: white;
+    width: 7rem;
+    height: 1.8rem;
+    border-radius: 5px;
+    border-color: black;
+  }
+
+  .write-font {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    padding-top: .1rem;
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 1.2rem;
+  }
+
+
+  /* calendar section */
+
+  .img-cal {
+    background-color: white;
+    border: 10px;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-color: black;
+    margin-top: 1rem;
+  }
+  
+  .cal-day {
+    color: black;
+    margin-top: .6rem;
+    font-size: 1.5rem;
+  }
+  
+  .cal-num {
+    color: red;
+    margin: 0em;
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 3.5rem;
+    padding-bottom: .2rem;
+  }
+
+
+
+
+ 

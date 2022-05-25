@@ -1,0 +1,21 @@
+.update-main-page .data-input {
+    background-color: #48FAB1;
+    height: 100vh;
+    width: 100%;
+}
+
+.button-section {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .update-button {
+    background-color: #5CFFD9;
+    border-radius: 1rem;
+    width: 5rem;
+    height: 2.5rem;
+    border: 2px solid black;
+  }
+
+  
+  

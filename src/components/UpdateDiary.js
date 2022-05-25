@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useParams, useNavigate } from "react-router-dom"
-
+import './updateDiary.css'
 
 function UpdateDiary(props) {
     const today = Date()
@@ -19,7 +19,7 @@ function UpdateDiary(props) {
                 console.log("response:", response)
                 setFormData(response.data)
             })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const { setDiary, setToggle } = props
@@ -58,39 +58,39 @@ function UpdateDiary(props) {
     }
 
     return (
-        <form onSubmit={handleSubmit}
-            className='data-input'>
-            <header className='my-diary'>
-                <h1 className='diary-font2'><Link to='/'>MY DIARY...</Link></h1>
-            </header>
-            <div className='form-display'>
-                <h2>Write New</h2>
+        <div className="update-main-page">
+            <form onSubmit={handleSubmit}
+                className='data-input'>
+                <header className='my-diary'>
+                    <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
+                </header>
+                <div className='form-display'>
+                    <div className='main-date'>
+                        <h3>{today.slice(0, 15)}</h3>
+                    </div>
 
-                <div className='main-date'>
-                    <h3>{today.slice(0, 15)}</h3>
-                </div>
+                    <div className='question-one'>
+                        <label htmlFor='plan'> What's your action plan?</label>
+                        <br />
+                        <textarea rows='7' id='plan' placeholder="Write your plan here" name='plan'
+                            onChange={handleChange} value={pageData.plan} required />
+                    </div>
 
-                <div className='question-two'>
-                    <label htmlFor='plan'> What's your action plan?</label>
-                    <br />
-                    <textarea rows='7' id='plan' placeholder="Write your plan here" name='plan'
-                        onChange={handleChange} value={pageData.plan} required />
-                </div>
+                    <div className='question-two'>
+                        <label htmlFor='affirmation'> Write some daily affirmations?</label>
+                        <br />
+                        <textarea rows='3' id='affirmation' placeholder="Write your plan here" name='affirmation'
+                            onChange={handleChange} value={pageData.affirmation} required />
+                    </div>
 
-                <div className='question-three'>
-                    <label htmlFor='affirmation'> Write some daily affirmations?</label>
-                    <br />
-                    <textarea rows='3' id='affirmation' placeholder="Write your plan here" name='affirmation'
-                        onChange={handleChange} value={pageData.affirmation} required />
+                    <div className="actions-section">
+                        <button className="update-button" type="submit">
+                            Update
+                        </button>
+                    </div>
                 </div>
-
-                <div className="actions-section">
-                    <button className="button" type="submit">
-                        Add
-                    </button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     )
 }
 
