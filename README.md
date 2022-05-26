@@ -1,7 +1,7 @@
 # solo-project-diary-client
 
 
-#Project Description
+# Project Description
 
 Overview:
 
@@ -20,7 +20,7 @@ When you have clicked onto your diary entry, you can view it rendered with two o
 ![view diary entry](./pictures/4.png)
 ![edit diary entry](./pictures/5.png)
 
-#Setup instructions
+# Setup instructions
 
 Clone this repository
 
