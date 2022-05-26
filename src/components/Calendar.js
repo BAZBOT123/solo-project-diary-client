@@ -9,9 +9,7 @@ function Calendar(props) {
 
     //"contacts" must be passed as prop to this component
     const { diary, date, setDate, applyDate, setApplyDate } = props
-
     console.log('diary list:', diary)
-
     console.log('check state:', date)
 
     return (
@@ -39,7 +37,6 @@ function Calendar(props) {
                     console.log("created:", createdAt)
 
                     return (
-
                         <Link to={`/diary/${id}`}><li className="diary" key={index}>
                             <p>
                                 {createdAt.substring(0, 10)}                
@@ -50,10 +47,8 @@ function Calendar(props) {
                         </li></Link>
                     )
                 })}
-
             </ul>
         </div>
-
     )
 }
 

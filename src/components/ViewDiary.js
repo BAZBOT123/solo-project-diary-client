@@ -53,10 +53,7 @@ const [newDiary, setNewDiary] = useState(null)
     if (!newDiary) {
         return <p>Wait there a sec...</p>
     }
-
     console.log('Diary?', newDiary)
-
-
 
     return (
         <div className='view-main-page'>

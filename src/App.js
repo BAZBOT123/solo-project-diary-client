@@ -42,8 +42,6 @@ let url = 'http://localhost:4000/diary' + dateRange;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toggle, applyDate])
 
-  // console.log("Help", diary[diary.length-1].id)
-
   return (
     <div className='main-page'>
       
@@ -57,9 +55,6 @@ let url = 'http://localhost:4000/diary' + dateRange;
         </Routes>
       </main>
     </div>
-
-
-
   )
 }
 

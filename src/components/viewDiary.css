@@ -11,13 +11,16 @@
   padding: 1rem;
 }
 
+div.diary-date-div {
+  height: 0;
+}
+
 .diary-date-div {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   align-items: flex-start;
   margin: 0;
-  height: 0;
 }
 
 .view-diary-date {
