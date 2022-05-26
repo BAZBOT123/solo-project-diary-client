@@ -44,7 +44,7 @@ function AddNew(props) {
                 navigate('/diary/calendar')
             })
     }
-
+ console.log("check pagedata:", pageData)
     return (
         <main className="add-new-page">
             <form className='data-input'
@@ -53,8 +53,8 @@ function AddNew(props) {
                     <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
                 </header>
 
-                <main className='form-display'>
-                    <form className='post-display'>
+                <main className='add-form-display'>
+                    <div className='post-display'>
                         <div className='main-date'>
                             <h3>{today.slice(0, 15)}</h3>
                         </div>
@@ -78,7 +78,7 @@ function AddNew(props) {
                                 Post
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </main>
             </form>
         </main>

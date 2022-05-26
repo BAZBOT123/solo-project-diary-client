@@ -8,6 +8,7 @@ import UpdateDiary from './components/UpdateDiary'
 import Home from './components/Home'
 import { useEffect } from 'react';
 
+
 export default function App() {
 
 
@@ -37,6 +38,7 @@ let url = 'http://localhost:4000/diary' + dateRange;
         console.log("Loaded initial entries:", res)
         setDiary(res.diaries)
       })
+  
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toggle, applyDate])
 
@@ -49,9 +51,9 @@ let url = 'http://localhost:4000/diary' + dateRange;
         <Routes>
           <Route path='/' element={< Home />} />
           <Route path='/diary/addnew' element={< AddNew diary={diary} setDiary={setDiary} />} />
-          <Route path='/diary/:id' element={< ViewDiary />} />
+          <Route path='/diary/:id' element={< ViewDiary setDiary={setDiary} diary={diary} />} />
           <Route path='/diary/calendar' element={< Calendar diary={diary} setDate={setDate} date={date} applyDate={applyDate} setApplyDate={setApplyDate}/>} />
-          <Route path='/diary/:id/edit' element={< UpdateDiary diary={diary} setDiary={setDiary} setToggle={setToggle} />} />
+          <Route path='/diary/:id/view' element={< UpdateDiary diary={diary} setDiary={setDiary} setToggle={setToggle} />} />
         </Routes>
       </main>
     </div>

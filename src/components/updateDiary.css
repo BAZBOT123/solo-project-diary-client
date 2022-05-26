@@ -28,8 +28,13 @@
 
 .update-date-div h3 {
   font-family: "Patrick Hand SC", cursive;
-  margin: 0;
+  
   font-size: 1.4rem;
+  
+}
+
+.update-date-div {
+  margin-bottom: 1.5rem;
 }
 
 div.update-button-div {
@@ -48,4 +53,9 @@ textarea#affirmation {
 
 label {
   font-size: 1.4rem;
+}
+
+
+.form-display {
+  margin-top: 4.5rem;
 }

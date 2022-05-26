@@ -26,6 +26,14 @@
   flex-direction: column;
 }
 
+.add-form-display {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
 .button-section {
   display: flex;
   justify-content: flex-end;
@@ -83,16 +91,11 @@ width: 100%;
   justify-content: flex-end;
 }
 
-.main-date {
+div.main-date h3 {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 1rem;
-}
-
-div.main-date h3 {
   font-family: "Patrick Hand SC", cursive;
   margin-bottom: .5rem;
-  margin-top: 1rem;
   font-size: 1.4rem;
 }
 

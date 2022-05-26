@@ -23,13 +23,13 @@ function Calendar(props) {
             </header>
             <h2 className='calendar-text'>Choose your diary entry dates, treacle:</h2>
             <div className='calendar-display'>
-            <DateRange
-                editableDateInputs={true}
-                onChange={item => setDate([item.selection])}
-                moveRangeOnFirstSelection={false}
-                ranges={date}
-            />
-            <button className='apply-button' onClick={()=> setApplyDate(!applyDate)}> Apply </button>
+                <DateRange
+                    editableDateInputs={true}
+                    onChange={item => setDate([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={date}
+                />
+                <button className='apply-button' onClick={() => setApplyDate(!applyDate)}> Apply </button>
             </div>
             <ul className="diary-list">
 
@@ -37,14 +37,12 @@ function Calendar(props) {
                     // console.log("Hello", entry)
                     const { plan, createdAt, id } = entry
                     console.log("created:", createdAt)
+
                     return (
+
                         <Link to={`/diary/${id}`}><li className="diary" key={index}>
                             <p>
-                                {createdAt.substring(0, 10)}
-                                <br />
-                                {/* <Link to={`/diary/${diary.id}/update`}>Edit</Link>
-                <br />
-                <Link to={`/diary/${diary.id}/delete`}>Delete</Link> */}
+                                {createdAt.substring(0, 10)}                
                             </p>
                             <p>
                                 {plan}
@@ -52,8 +50,10 @@ function Calendar(props) {
                         </li></Link>
                     )
                 })}
+
             </ul>
         </div>
+
     )
 }
 
