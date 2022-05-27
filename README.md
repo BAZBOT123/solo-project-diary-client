@@ -35,4 +35,4 @@ You can refer to the server file (solo-project-diary-server) to view ERD during 
 
 Lessons I learnt was that I have already done these algorithms before, but just in another way. Just trust the process. Adding a little hard work, with some research and experimenting with your code will help you in the long run.
 
-The biggest challenges I faced durying this project was facing problems with occuring bugs in my code. It helps a lot when you are apply console.logs and looking at the following errors in your terminal and console on the browser.
+The biggest challenges I faced during this project was facing problems with occuring bugs in my code. It helps a lot when you are apply console.logs and looking at the following errors in your terminal and console on the browser.
