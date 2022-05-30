@@ -44,7 +44,7 @@ function AddNew(props) {
                 navigate('/diary/calendar')
             })
     }
- console.log("check pagedata:", pageData)
+    console.log("check pagedata:", pageData)
     return (
         <main className="add-new-page">
             <form className='data-input'

@@ -39,7 +39,7 @@ function Calendar(props) {
                     return (
                         <Link to={`/diary/${id}`}><li className="diary" key={index}>
                             <p>
-                                {createdAt.substring(0, 10)}                
+                                {createdAt.substring(0, 10)}
                             </p>
                             <p>
                                 {plan}

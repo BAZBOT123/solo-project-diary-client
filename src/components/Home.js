@@ -32,14 +32,14 @@ export default function Home() {
     <nav className='centre-nav'>
 
       <header className='my-diary'>
-      <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
+        <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
       </header>
 
       <ul className='main-menu'>
-    
+
         <div className='div-write'>
-        <li><Link to='/diary/addnew'>
-          <p className='write-font'>Write New</p></Link></li>
+          <li><Link to='/diary/addnew'>
+            <p className='write-font'>Write New</p></Link></li>
         </div>
 
         <li><Link to={`/diary/calendar`}><div className="img-cal">
@@ -48,7 +48,7 @@ export default function Home() {
         </div></Link></li>
 
         <div className='div-quote'>
-        <p className='main-quote'>"{quote}"</p>
+          <p className='main-quote'>"{quote}"</p>
         </div>
       </ul>
     </nav>

@@ -6,9 +6,9 @@ import './viewDiary.css'
 
 
 
-export default function ViewDiary({setDiary, diary}) {
+export default function ViewDiary({ setDiary, diary }) {
 
-const [newDiary, setNewDiary] = useState(null)
+    const [newDiary, setNewDiary] = useState(null)
 
     const params = useParams()
     const id = params.id
@@ -26,12 +26,12 @@ const [newDiary, setNewDiary] = useState(null)
     }, [id])
 
     let navigate = useNavigate()
-    
-    function deleteItem(){
+
+    function deleteItem() {
         const options = {
 
             method: 'DELETE'
-    
+
             //A DELETE request has no request body - using REST, we identify we resource
             //we want to delete via the URL. So we don't need to specify the other options
             //here
@@ -39,7 +39,7 @@ const [newDiary, setNewDiary] = useState(null)
         // eslint-disable-next-line eqeqeq
         setDiary(preVal => preVal.filter(diary => diary.id != id))
         //The URL in this case means to delete the delete.id
-    
+
         fetch(`http://localhost:4000/diary/${id}`, options)
             .then(response => response.json())
             .then(response => {
@@ -60,11 +60,11 @@ const [newDiary, setNewDiary] = useState(null)
             <header className='my-diary'>
                 <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
             </header>
-            
-                <div className='diary-date-div'>
+
+            <div className='diary-date-div'>
                 <h2 className='view-diary-date'>{newDiary.createdAt.substring(0, 10)}</h2>
-                </div>
-                <main className='view-display'>
+            </div>
+            <main className='view-display'>
                 <div className='div-view-plan'>
                     <h3>Your action plan:</h3>
                     <p>{newDiary.plan}</p>
@@ -74,11 +74,11 @@ const [newDiary, setNewDiary] = useState(null)
                     <h3>Your daily affirmations:</h3>
                     <p>{newDiary.affirmation}</p>
                 </div>
-                </main>
-                <div className='view-edit-button'>
-                <button onClick={ deleteItem } className='delete-button'>Delete</button>
+            </main>
+            <div className='view-edit-button'>
+                <button onClick={deleteItem} className='delete-button'>Delete</button>
                 <Link to={`/diary/${newDiary.id}/view`}><button className='edit-button'>Edit</button></Link>
-                </div>
+            </div>
         </div>
     )
 }
