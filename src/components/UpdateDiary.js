@@ -53,7 +53,7 @@ function UpdateDiary(props) {
           plan: '',
           affirmation: ''
         })
-        navigate('/')
+        navigate('/diary/calendar')
       })
   }
 

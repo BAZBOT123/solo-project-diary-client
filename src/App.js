@@ -39,9 +39,11 @@ let url = 'http://localhost:4000/diary' + dateRange;
         setDiary(res.diaries)
       })
   
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toggle, applyDate])
 
+  console.log("check date", end)
   return (
     <div className='main-page'>
       
@@ -51,7 +53,7 @@ let url = 'http://localhost:4000/diary' + dateRange;
           <Route path='/diary/addnew' element={< AddNew diary={diary} setDiary={setDiary} />} />
           <Route path='/diary/:id' element={< ViewDiary setDiary={setDiary} diary={diary} />} />
           <Route path='/diary/calendar' element={< Calendar diary={diary} setDate={setDate} date={date} applyDate={applyDate} setApplyDate={setApplyDate}/>} />
-          <Route path='/diary/:id/view' element={< UpdateDiary diary={diary} setDiary={setDiary} setToggle={setToggle} />} />
+          <Route path='/diary/:id/view' element={< UpdateDiary diary={diary} setDiary={setDiary} setToggle={setToggle} />} /> 
         </Routes>
       </main>
     </div>

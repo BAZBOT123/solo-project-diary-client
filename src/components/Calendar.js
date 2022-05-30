@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
-import { addDays } from 'date-fns';
+import { addDays, closestIndexTo } from 'date-fns';
 import { DateRange } from 'react-date-range'
 import './calendar.css'
 
