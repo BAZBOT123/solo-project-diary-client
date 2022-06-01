@@ -5,6 +5,8 @@ import AddNew from './components/AddNew'
 import ViewDiary from './components/ViewDiary'
 import Calendar from './components/Calendar'
 import UpdateDiary from './components/UpdateDiary'
+import Register from './components/Register'
+import Login from './components/Login'
 import Home from './components/Home'
 import { useEffect } from 'react';
 
@@ -49,11 +51,14 @@ export default function App() {
 
       <main>
         <Routes>
-          <Route path='/' element={< Home />} />
+          <Route path='/home' element={< Home />} />
           <Route path='/diary/addnew' element={< AddNew diary={diary} setDiary={setDiary} />} />
           <Route path='/diary/:id' element={< ViewDiary setDiary={setDiary} diary={diary} />} />
           <Route path='/diary/calendar' element={< Calendar diary={diary} setDate={setDate} date={date} applyDate={applyDate} setApplyDate={setApplyDate} />} />
           <Route path='/diary/:id/view' element={< UpdateDiary diary={diary} setDiary={setDiary} setToggle={setToggle} />} />
+
+          <Route path='/register' element={< Register />} />
+          <Route path='/' element={< Login />} />
         </Routes>
       </main>
     </div>
