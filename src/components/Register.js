@@ -52,25 +52,9 @@ const Register = () => {
       <header className='my-diary-div'><i className="fa-light fa-face-awesome"></i>
                 <h1 className='diary-font'>MY DIARY...</h1>
             </header>
-            
+
       <form className='signup-form' onSubmit={handleRegister}>
         <p>Sign up here:</p>
-        <input
-          type='text'
-          placeholder='Username'
-          onChange={handleChange}
-          name='username'
-          value={user.username}
-          autoComplete='off'
-        />
-        <input
-          type='email'
-          placeholder='Email'
-          onChange={handleChange}
-          name='email'
-          value={user.email}
-          autoComplete='off'
-        />
         <input
           type='text'
           placeholder='First name'
@@ -85,6 +69,22 @@ const Register = () => {
           onChange={handleChange}
           name='lastName'
           value={user.lastName}
+          autoComplete='off'
+        />
+        <input
+          type='email'
+          placeholder='Email'
+          onChange={handleChange}
+          name='email'
+          value={user.email}
+          autoComplete='off'
+        />
+        <input
+          type='text'
+          placeholder='Username'
+          onChange={handleChange}
+          name='username'
+          value={user.username}
           autoComplete='off'
         />
         <input
