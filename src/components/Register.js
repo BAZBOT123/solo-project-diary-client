@@ -49,7 +49,10 @@ const Register = () => {
 
   return (
     <div className='registration-page'>
-      
+      <header className='my-diary-div'><i className="fa-light fa-face-awesome"></i>
+                <h1 className='diary-font'>MY DIARY...</h1>
+            </header>
+            
       <form className='signup-form' onSubmit={handleRegister}>
         <p>Sign up here:</p>
         <input
@@ -100,7 +103,7 @@ const Register = () => {
           value={user.confirm_password}
           autoComplete='off'
         />
-        <button className='submit'>Sign up</button>
+        <button className='submit-registration'>Sign up</button>
       </form>
     </div>
   );

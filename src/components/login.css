@@ -50,12 +50,10 @@ button.submit,
 form.login-form input {
   background-color: #feff80;
   font-family: "Patrick Hand SC", cursive;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
-
 
 p {
-    font-family: "Patrick Hand SC", cursive;
-    font-size: 1.2rem;
+  font-family: "Patrick Hand SC", cursive;
+  font-size: 1.2rem;
 }
-
