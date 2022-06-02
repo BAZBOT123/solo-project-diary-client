@@ -3,69 +3,73 @@ import { useNavigate } from 'react-router-dom';
 import './login.css';
 
 const Login = () => {
-  const emptyUser = { username: '', password: '' };
-  const [user, setUser] = useState({ emptyUser });
-  const navigate = useNavigate();
+    const emptyUser = { username: '', password: '' };
+    const [user, setUser] = useState({ emptyUser });
+    const navigate = useNavigate();
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setUser((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: value,
-      };
-    });
-  }
+    function handleChange(event) {
+        const { name, value } = event.target;
+        setUser((prevFormData) => {
+            return {
+                ...prevFormData,
+                [name]: value,
+            };
+        });
+    }
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
+    const handleLogin = async (event) => {
+        event.preventDefault();
 
-    const options = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user),
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user),
+        };
+
+        fetch('http://localhost:4000/user/login', options)
+            .then((res) => {
+                if (!res.ok) throw Error('could not fetch the data from the source');
+                return res.json();
+            })
+            .then((res) => {
+                localStorage.setItem('jwt', res.token);
+                localStorage.setItem('isLoggedIn', true);
+                console.log('logged in', res);
+                navigate('/home');
+
+            })
+            .catch((err) => console.log(err));
     };
+    console.log("user checked:", user)
 
-    fetch('http://localhost:4000/user/login', options)
-      .then((res) => {
-        if (!res.ok) throw Error('could not fetch the data from the source');
-        return res.json();
-      })
-      .then((res) => {
-        localStorage.setItem('jwt', res.token);
-          localStorage.setItem('isLoggedIn', true);
-          console.log('logged in', res);
-          navigate('/home');
-    
-      })
-      .catch((err) => console.log(err));
-  };
-  console.log("user checked:", user)
+    return (
+        <div className='login-page'>
 
-  return (
-    <div className='login-page'> 
-      <form className='login-form' onSubmit={handleLogin}>
-          <p>Login here:</p>
-        <input
-          type='text'
-          placeholder='Username'
-          onChange={handleChange}
-          name='username'
-          value={user.username}
-          autoComplete='off'
-        />
-        <input
-          type='password'
-          placeholder='Password'
-          onChange={handleChange}
-          name='password'
-          value={user.password}
-          autoComplete='off'
-        />
-        <button className='submit'>Login</button>
-      </form>
-    </div>
-  );
+            <header className='my-diary-div'><i className="fa-light fa-face-awesome"></i>
+                <h1 className='diary-font'>MY DIARY...</h1>
+            </header>
+            <form className='login-form' onSubmit={handleLogin}>
+                <p>Login here:</p>
+                <input
+                    type='text'
+                    placeholder='Username'
+                    onChange={handleChange}
+                    name='username'
+                    value={user.username}
+                    autoComplete='off'
+                />
+                <input
+                    type='password'
+                    placeholder='Password'
+                    onChange={handleChange}
+                    name='password'
+                    value={user.password}
+                    autoComplete='off'
+                />
+                <button className='submit'>Login</button>
+            </form>
+        </div>
+    );
 };
 
 export default Login;

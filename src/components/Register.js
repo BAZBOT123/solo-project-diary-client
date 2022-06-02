@@ -51,6 +51,7 @@ const Register = () => {
     <div className='registration-page'>
       
       <form className='signup-form' onSubmit={handleRegister}>
+        <p>Sign up here:</p>
         <input
           type='text'
           placeholder='Username'
