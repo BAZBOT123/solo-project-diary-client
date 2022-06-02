@@ -1,6 +1,6 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import './style.css';
+import './login.css';
 
 const Login = () => {
   const emptyUser = { username: '', password: '' };
@@ -45,6 +45,7 @@ const Login = () => {
   return (
     <div className='login-page'> 
       <form className='login-form' onSubmit={handleLogin}>
+          <p>Login here:</p>
         <input
           type='text'
           placeholder='Username'
