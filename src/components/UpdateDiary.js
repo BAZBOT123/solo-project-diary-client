@@ -62,7 +62,7 @@ function UpdateDiary(props) {
       <form onSubmit={handleSubmit}
         className='data-input'>
         <header className='my-diary'>
-          <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
+          <h1 className='diary-font'><Link to='/home'>MY DIARY...</Link></h1>
         </header>
         <div className='form-display'>
           <div className='update-date-div'>

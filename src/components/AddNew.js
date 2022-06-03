@@ -51,7 +51,7 @@ function AddNew(props) {
             <form className='data-input'
                 onSubmit={handleSubmit}>
                 <header className='my-diary-div'><i className="fa-light fa-face-awesome"></i>
-                    <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
+                    <h1 className='diary-font'><Link to='/home'>MY DIARY...</Link></h1>
                 </header>
 
                 <main className='add-form-display'>

@@ -45,7 +45,7 @@ export default function ViewDiary({ setDiary, diary }) {
             .then(response => {
                 //log it out.
                 console.log("Diary deleted", response)
-                navigate('/')
+                navigate('/home')
             })
     }
 
@@ -58,7 +58,7 @@ export default function ViewDiary({ setDiary, diary }) {
     return (
         <div className='view-main-page'>
             <header className='my-diary'>
-                <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
+                <h1 className='diary-font'><Link to='/home'>MY DIARY...</Link></h1>
             </header>
 
             <div className='diary-date-div'>

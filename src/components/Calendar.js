@@ -17,7 +17,7 @@ function Calendar(props) {
 
             <header className='my-diary'>
 
-                <h1 className='diary-font'><Link to='/'>MY DIARY...</Link></h1>
+                <h1 className='diary-font'><Link to='/home'>MY DIARY...</Link></h1>
             </header>
             <h2 className='calendar-text'>Choose your diary entry dates, treacle:</h2>
             <div className='calendar-display'>
