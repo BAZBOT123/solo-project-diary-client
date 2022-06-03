@@ -39,7 +39,7 @@ const Register = () => {
     fetch(`${url}/user/register`, options)
       .then((res) => res.json())
       .then((res) => {
-          // navigate('/login');
+          navigate('/');
           console.log("check data:", res)
       })
       .catch((e) => {

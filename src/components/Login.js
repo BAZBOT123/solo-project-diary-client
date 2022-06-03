@@ -1,5 +1,5 @@
 import { useState, React } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './login.css';
 
 const Login = () => {
@@ -28,7 +28,7 @@ const Login = () => {
 
         fetch('http://localhost:4000/user/login', options)
             .then((res) => {
-                if (!res.ok) throw Error('could not fetch the data from the source');
+                if (!res.ok) throw Error('incorrect password/username ');
                 return res.json();
             })
             .then((res) => {
@@ -38,7 +38,7 @@ const Login = () => {
                 navigate('/home');
 
             })
-            .catch((err) => console.log(err));
+            .catch((err) => alert(err.message));
     };
     console.log("user checked:", user)
 
@@ -67,6 +67,9 @@ const Login = () => {
                     autoComplete='off'
                 />
                 <button className='submit'>Login</button>
+
+
+                <Link to='/register'>Sign up</Link>
             </form>
         </div>
     );

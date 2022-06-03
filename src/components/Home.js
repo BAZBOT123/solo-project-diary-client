@@ -1,13 +1,15 @@
 /* eslint-disable no-unused-vars */
-import { Link, } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import './home.css'
+
 
 
 export default function Home() {
 
   const [quote, setQuote] = useState([])
   const [counter, setCounter] = useState(0)
+  const navigate = useNavigate();
 
   const date = new Date()
   const weekday = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
@@ -28,6 +30,11 @@ export default function Home() {
   }
   // console.log("ch", randomNum())
   // console.log('JR', quote[randomNum()])
+
+  function logout(){
+    localStorage.removeItem('jwt')
+    navigate('/')
+  }
   return (
     <nav className='centre-nav'>
 
@@ -47,9 +54,11 @@ export default function Home() {
           <p className='cal-num'>{date.getDate()}</p>
         </div></Link></li>
 
+        <button className='logout' onClick={ logout }>Logout</button>
         <div className='div-quote'>
           <p className='main-quote'>"{quote}"</p>
         </div>
+        
       </ul>
     </nav>
   )
