@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import './home.css'
 
-
-
 export default function Home() {
 
   const [quote, setQuote] = useState([])
@@ -23,6 +21,7 @@ export default function Home() {
       .then(res => {
         setQuote(res[randomNum()].text)
       })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [counter])
 
   function randomNum() {
