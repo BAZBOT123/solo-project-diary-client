@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { Link, useParams, useNavigate } from "react-router-dom"
 import './updateDiary.css'
 
+const url = process.env.REACT_APP_API_URL
+
 function UpdateDiary(props) {
   const today = Date()
   let navigate = useNavigate()
@@ -13,7 +15,7 @@ function UpdateDiary(props) {
   })
 
   useEffect(() => {
-    fetch(`http://localhost:4000/diary/${params.id}`)
+    fetch(url + `/diary/${params.id}`)
       .then(response => response.json())
       .then(response => {
         console.log("response:", response)
@@ -43,7 +45,7 @@ function UpdateDiary(props) {
       body: JSON.stringify(pageData)
     }
 
-    fetch(`http://localhost:4000/diary/${params.id}`, options)
+    fetch(url + `/diary/${params.id}`, options)
       .then(response => response.json())
       .then(response => {
         console.log("Check data:", response.data)

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { Link, useNavigate } from "react-router-dom"
 import './viewDiary.css'
 
-
+const url = process.env.REACT_APP_API_URL
 
 export default function ViewDiary({ setDiary, diary }) {
 
@@ -13,15 +13,12 @@ export default function ViewDiary({ setDiary, diary }) {
     const params = useParams()
     const id = params.id
 
-    console.log("hello", params)
-
     useEffect(() => {
-        fetch(`http://localhost:4000/diary/${id}`)
+        fetch( `${url}/diary/${id}`)
             .then(res => res.json())
             .then(res => {
                 console.log('Baz', res)
                 setNewDiary(res.data)
-
             })
     }, [id])
 
@@ -40,7 +37,7 @@ export default function ViewDiary({ setDiary, diary }) {
         setDiary(preVal => preVal.filter(diary => diary.id != id))
         //The URL in this case means to delete the delete.id
 
-        fetch(`http://localhost:4000/diary/${id}`, options)
+        fetch(url + `/diary/${id}`, options)
             .then(response => response.json())
             .then(response => {
                 //log it out.
@@ -49,11 +46,9 @@ export default function ViewDiary({ setDiary, diary }) {
             })
     }
 
-
     if (!newDiary) {
         return <p>Wait there a sec...</p>
     }
-    console.log('Diary?', newDiary)
 
     return (
         <div className='view-main-page'>

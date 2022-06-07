@@ -14,23 +14,21 @@ export default function Home() {
   const date = new Date()
   const weekday = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
   let day = weekday[date.getDay()]
+  const quotes = process.env.REACT_APP_QUOTES_URL
+
 
   useEffect(() => {
-    fetch('https://type.fit/api/quotes')
+    fetch(quotes)
       .then(res => res.json())
       .then(res => {
-        // console.log("Apple", res)
         setQuote(res[randomNum()].text)
-        // console.log('JR', res[randomNum()].text)
       })
   }, [counter])
 
   function randomNum() {
     return Math.floor(1 + Math.random() * 100)
   }
-  // console.log("ch", randomNum())
-  // console.log('JR', quote[randomNum()])
-
+ 
   function logout(){
     localStorage.removeItem('jwt')
     navigate('/')

@@ -2,6 +2,8 @@ import { useState, React } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './login.css';
 
+const url = process.env.REACT_APP_API_URL
+
 const Login = () => {
     const emptyUser = { username: '', password: '' };
     const [user, setUser] = useState({ emptyUser });
@@ -26,7 +28,7 @@ const Login = () => {
             body: JSON.stringify(user),
         };
 
-        fetch('http://localhost:4000/user/login', options)
+        fetch(url +'/user/login', options)
             .then((res) => {
                 if (!res.ok) throw Error('incorrect password/username ');
                 return res.json();
@@ -40,7 +42,6 @@ const Login = () => {
             })
             .catch((err) => alert(err.message));
     };
-    console.log("user checked:", user)
 
     return (
         <div className='login-page'>

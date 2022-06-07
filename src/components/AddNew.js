@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
 import './addNew.css'
+const url = process.env.REACT_APP_API_URL
 
 function AddNew(props) {
     const today = Date()
+    console.log(url)
     const { setDiary, diary } = props
     let navigate = useNavigate()
 
@@ -32,7 +34,7 @@ function AddNew(props) {
             body: JSON.stringify(pageData)
         }
 
-        fetch('http://localhost:4000/diary/1', options)
+        fetch(url + '/diary/1', options)
             .then(res => res.json())
             .then(res => {
                 console.log("this is diary", diary)
@@ -45,7 +47,7 @@ function AddNew(props) {
                 navigate('/diary/calendar')
             })
     }
-    console.log("check pagedata:", pageData)
+    
     return (
         <main className="add-new-page">
             <form className='data-input'

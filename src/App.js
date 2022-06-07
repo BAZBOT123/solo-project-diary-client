@@ -31,16 +31,16 @@ export default function App() {
   const end = date[0].endDate;
 
   const dateRange = `?startDate=${start}&endDate=${end}`
-  let url = 'http://localhost:4000/diary' + dateRange;
+  const url = process.env.REACT_APP_API_URL
+
 
   useEffect(() => {
-    fetch(url)
+    fetch(url + '/diary' + dateRange)
       .then(res => res.json())
       .then(res => {
         console.log("Loaded initial entries:", res)
         setDiary(res.diaries)
       })
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toggle, applyDate])
