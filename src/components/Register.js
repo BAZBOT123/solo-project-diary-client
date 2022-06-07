@@ -1,6 +1,7 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './register.css';
+const url = process.env.REACT_APP_API_URL;
 
 const Register = () => {
   const emptyUser = {
@@ -24,7 +25,6 @@ const Register = () => {
     });
   }
 
-  const url = process.env.REACT_APP_API_URL;
 
   const handleRegister = async (e) => {
     e.preventDefault();
