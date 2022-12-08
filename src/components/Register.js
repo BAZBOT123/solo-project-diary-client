@@ -25,7 +25,6 @@ const Register = () => {
     });
   }
 
-
   const handleRegister = async (e) => {
     e.preventDefault();
 
